@@ -1,0 +1,28 @@
+html, body, .container, .content {
+    height: 100%;
+    overflow: hidden;
+}
+
+.container, .content {
+    position: relative;
+}
+
+.messages-container {
+    margin-top: 40px; /* >= navbar height */
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -223px; /* same as the footer */
+}
+
+.push {
+    height: 223px; /* same as the footer */
+}
+.footer-wrapper {
+    position: relative;
+    height: 223px;
+    width: 620px;
+}

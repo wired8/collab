@@ -1,0 +1,27 @@
+link(rel="stylesheet", type="text/css", href="http://lab.wired8.com/collab/public/stylesheets/chat.css")
+.container
+  .wrapper
+    .row-fluid
+      .span9
+        .messages-container
+          .messages
+      .span3
+        .users(class="well sidebar-nav")
+          ul(id="user-list"
+          class="nav nav-list")
+            li(class="nav-header")  Users
+    .push
+  .footer-wrapper
+    .sendbar
+      form(class="well")
+        input(type="text"
+        id="text-input")
+        input(type="button"
+        class="btn-large btn-primary"
+        value="Send"
+        id="send-button")
+    .footer
+      footer  &copy; Wired8 Consulting Inc 2012
+
+- scripts.push('chat.js'); 
+  script(type='text/javascript', src='http://lab.wired8.com:3000/nowjs/now.js')

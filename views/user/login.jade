@@ -1,0 +1,60 @@
+section#wrapper
+  .container
+    .hero-unit
+      h1 collab
+      p Login to begin collaborating!
+      p
+        a(href="#loginModal"
+         data-toggle="modal"
+         class="btn btn-primary btn-large")  Let me in!
+         
+form(method='post', action='/')         
+  .modal.hide.fade#loginModal
+    .modal-header
+      a(data-dismiss="modal"
+       class="close")  x
+      h3 Login
+    .modal-body
+      label(for="user[email]") Username or email
+      input(name='user[email]', size=40, value=user.email || '')
+      label(for="user[password]") Password
+      input(name='user[password]', type='password', size=40, value=user.password || '')
+      p
+        a(href="#forgotPasswordModal"
+         data-dismiss="modal" 
+         data-toggle="modal") Help I forgot my damn password! 
+    .modal-footer
+      a(href="#signupModal"
+       data-dismiss="modal" 
+       data-toggle="modal"
+       class="pull-left") Sign me up
+      a(data-dismiss="modal"
+       class="btn")  Cancel
+      button(type="submit" 
+        class="btn btn-primary") Login
+
+form(method='post', action='/register')
+  fieldset
+    .modal.hide.fade#signupModal
+      .modal-header
+        a(data-dismiss="modal"
+         class="close")  x
+        h3 Create a collab account
+        p
+          | Enter some basic details below to join <b>collab</b> and start collaborating now!
+      .modal-body
+        label(for='register[username]') Username:
+        input.required(name='register[name]', size=40, value=register.name || '')
+        label(for='register[email]') Email:
+        input.required(name='register[email]', size=40, value=register.email || '')
+        label(for='register[password]') Password:
+        input.required(name='register[password]', type='password', size=40)
+        label(for='password_verify') Verify Password:
+        input.required(name='password_verify', type='password', size=40)      
+      .modal-footer
+        a(data-dismiss="modal"
+         class="btn")  Cancel
+        button(type="submit" 
+          class="btn btn-primary") Create my account
+
+  
