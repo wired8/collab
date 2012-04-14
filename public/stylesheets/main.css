@@ -141,6 +141,29 @@ body {
   margin-top: 30px;
 }
 
+.hero-unit p {
+	padding-top: 10px;
+}
+
+h1 em {
+	color: #666666;
+	font-size: 18px;
+	font-style: normal;
+	left: 5px;
+	position: relative;
+	top: -5px;
+}
+
+.hero-unit .about {
+	color: #666666;
+	display: inline;
+	font-size: 18px;
+	font-weight: normal;
+	padding-left: 10px;
+	position: relative;
+	top: -5px;
+}
+
 
 /* Messages */
 
