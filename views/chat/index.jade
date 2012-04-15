@@ -12,14 +12,21 @@ link(rel="stylesheet", type="text/css", href="http://lab.wired8.com/collab/publi
             li(class="nav-header")  Users
     .push
   .footer-wrapper
-    .sendbar
-      form(class="well")
-        input(type="text"
-        id="text-input")
-        input(type="button"
-        class="btn-large btn-primary"
-        value="Send"
-        id="send-button")
+    .row-fluid
+      .span9
+        .sendbar(class="well")
+          table(class="chat")
+            tr
+              td(class="chat-text")
+                input(type="text"
+                id="text-input")
+              td(class="spacer")
+                .spacer(class="spacer")
+              td(class="send-button")
+                input(type="button"
+                class="btn-large btn-primary"
+                value="Send"
+                id="send-button")
     .footer
       footer  &copy; Wired8 Consulting Inc 2012
 

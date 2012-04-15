@@ -53,6 +53,7 @@ body {
 .sendbar {
   padding-bottom: 20px;
   padding-top: 20px;
+  margin-top: 20px;
 }
 
 .sendbar input {
@@ -61,10 +62,20 @@ body {
 
 #text-input {
   font-size: 150%;
-  height: 150%;
-  margin-left: 5px;
-  margin-right: 5px;
-  width: 490px;
+	height: 150%;
+	width: 100%;
+}
+
+.chat-text {
+	width: 95%;
+}
+
+.spacer {
+  width: 10px;
+}
+
+.send-button {
+	width: 120px;
 }
 
 .messages-container {
