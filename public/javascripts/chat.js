@@ -8,7 +8,7 @@ head.ready(function(){
 							  "      <div class='screen-name'>" + user.name + "</div>" +
 							  "      <div class='message-time'>" + message.time + "</div>" +
 							  "    </div>" +
-							  "    <p class='message'>" + message.message + "</p>" +
+							  "    <div class='message'>" + message.message + "</div>" +
 							   "   </div>" +
 							  "  </div>");
 	    $(".messages-container").scrollTop($(".messages-container")[0].scrollHeight);
@@ -24,10 +24,10 @@ head.ready(function(){
 	  	}
 	  }
 	  	  
-	  now.addUser = function(user) {
+	  now.addUser = function(user) {	  
 			if ($("#user-list li[id='" + user.id + "']").length == 0) {
 				var userclass = 'icon-user';
-			    if (now.session.email == user.email) {
+			    if (now.session && now.session.email == user.email) {
 					userclass = 'icon-star';
 				} 
 	    	$(".users ul").append($("<li id='" + user.id + "' class='username'><a href='#users/"+ user.id + "'><i class='" + userclass + "'></i>" + "\n" + user.name + "</a></li>").hide().fadeIn(600));
@@ -63,7 +63,7 @@ head.ready(function(){
 			console.log('removed ' + id);
 	  }
 	  
-	  $('form').bind('keypress', function(e){
+	  $('textarea').bind('keypress', function(e){
     	if ( e.which == 13 ) {
     		now.distributeMessage($("#text-input").val());
 	    	$("#text-input").val("");	

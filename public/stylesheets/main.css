@@ -64,6 +64,8 @@ body {
   font-size: 150%;
 	height: 150%;
 	width: 100%;
+	max-height: 60px;
+	resize: none;
 }
 
 .chat-text {
@@ -76,6 +78,7 @@ body {
 
 .send-button {
 	width: 120px;
+	vertical-align: top;
 }
 
 .messages-container {
