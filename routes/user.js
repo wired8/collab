@@ -24,10 +24,32 @@ app.post('/', function(req, res) {
           res.cookie('logintoken', loginToken.cookieValue, { expires: new Date(Date.now() + 2 * 604800000), path: '/' });
         });
       }
-      email.register(req.body.user.email, req.body.user.password, "test");
       res.redirect('/chat');
     } else {
       req.flash('error', 'Login failed');
+      res.redirect('/');
+    }
+  });
+});
+
+// forgot password form route
+app.get('/resetpassword', function(req, res) {
+  res.render('user/resetpassword', {
+    locals: {
+      user: new User(),
+      register: new User()
+    }
+  });
+});
+
+// forgot password route
+app.post('/forgotpassword', function(req, res) {
+  User.findOne({ email: req.body.user.email }, function(err, user) {
+    if (user) {
+      email.forgotPassword(user.email, user.name, 'http://lab.wired8.com:3000', 'http://lab.wired8.com:3000/resetpassword#' + user.hashed_password);
+      res.redirect('/');
+    } else {
+      req.flash('error', 'No such account!');
       res.redirect('/');
     }
   });
@@ -92,7 +114,7 @@ app.post('/register', function(req, res) {
           nUser.save(function(err) {
             if (err) userSaveFailed();
             req.flash('info', 'Registration successful');
-            email.register(req.body.register.email, req.body.register.password, req.body.register.username);
+            email.register(req.body.register.email, req.body.register.password, req.body.register.username, 'http://lab.wired8.com:3000');
             res.redirect('/');
           });
         }

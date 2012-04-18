@@ -59,4 +59,23 @@ form(method='post', action='/register')
         button(type="submit" 
           class="btn btn-primary") Create my account
 
+form(method='post', action='/forgotpassword')    
+  .modal.hide.fade#forgotPasswordModal
+    .modal-header
+      a(data-dismiss="modal"
+       class="close")  x
+      h3 Forgot your password?
+      p
+        | <b>collab</b>
+        | will send password reset instructions to the email address associated with your user account. 
+    .modal-body
+      label(for="user_login") Email
+      .input
+        input(name='user[email]', size=40, value=user.email || '')
+    .modal-footer
+      a(data-dismiss="modal"
+       class="btn")  Cancel
+      button(type="submit" 
+        class="btn btn-primary") Send instructions
+
   
