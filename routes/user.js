@@ -1,3 +1,5 @@
+var email = require("../lib/email");
+
 // login form route
 app.get('/', function(req, res) {
   res.render('user/login', {
@@ -22,7 +24,7 @@ app.post('/', function(req, res) {
           res.cookie('logintoken', loginToken.cookieValue, { expires: new Date(Date.now() + 2 * 604800000), path: '/' });
         });
       }
-      
+      email.register(req.body.user.email, req.body.user.password, "test");
       res.redirect('/chat');
     } else {
       req.flash('error', 'Login failed');
@@ -90,6 +92,7 @@ app.post('/register', function(req, res) {
           nUser.save(function(err) {
             if (err) userSaveFailed();
             req.flash('info', 'Registration successful');
+            email.register(req.body.register.email, req.body.register.password, req.body.register.username);
             res.redirect('/');
           });
         }
