@@ -44,6 +44,14 @@ body {
   border-left: 1px solid #eee;
 }
 
+.gap-20 {
+	margin-top: 20px;
+}
+
+.gap-30 {
+	margin-top: 30px;
+}
+
 .topbar .btn {
   border: 0;
 }

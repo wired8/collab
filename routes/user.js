@@ -33,20 +33,37 @@ app.post('/', function(req, res) {
 });
 
 // forgot password form route
-app.get('/resetpassword', function(req, res) {
-  res.render('user/resetpassword', {
-    locals: {
-      user: new User(),
-      register: new User()
-    }
-  });
+app.get('/resetpassword/:id', function(req, res) {
+	var id = req.params.id;
+	if (id) {
+	  res.render('user/resetpassword', {
+	    locals: {
+	      hashedPassword: id,
+	    }
+	  });
+  } else {
+		res.redirect('/');  
+	}
+});
+
+// reset password form route
+app.post('/resetpassword', function(req, res) {
+    User.findOne({ hashed_password: req.body.id }, function(err, user) {
+    	if (user) {
+    	  user.password = req.body.password;
+    		user.save(function(err, updated) {
+    			if (err) res.redirect('/error');
+    		});
+    	}
+    });
+		res.redirect('/');
 });
 
 // forgot password route
 app.post('/forgotpassword', function(req, res) {
   User.findOne({ email: req.body.user.email }, function(err, user) {
     if (user) {
-      email.forgotPassword(user.email, user.name, 'http://lab.wired8.com:3000', 'http://lab.wired8.com:3000/resetpassword#' + user.hashed_password);
+      email.forgotPassword(user.email, user.name, 'http://lab.wired8.com:3000', 'http://lab.wired8.com:3000/resetpassword/' + user.hashed_password);
       res.redirect('/');
     } else {
       req.flash('error', 'No such account!');
@@ -71,6 +88,12 @@ app.get('/register', function(req, res) {
     locals: {
       register: new User()
     }
+  });
+});
+
+// register error route
+app.get('/error', function(req, res) {
+  res.render('user/error', {
   });
 });
 

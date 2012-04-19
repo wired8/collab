@@ -11,7 +11,9 @@
      jQuery('.page-header').dropdown();
      jQuery(function(){
        jQuery(window).resize(function(){
-         utils.autoResizeChatWindow();
+         if (utils){
+           utils.autoResizeChatWindow();
+         }
        });
      });
     });
