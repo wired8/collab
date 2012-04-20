@@ -40,15 +40,28 @@ FlashMessage.prototype = {
 };
 
 exports.dynamicHelpers = {
-  flashMessages: function(req, res) {
+	flashMessages: function(request) { 
+		return request.flash('error'); 
+	},
+  _flashMessages: function(req, res) {
     var html = '';
     [ 'info', 'error' ].forEach(function(type) {
       var messages = req.flash(type);
       if (messages.length > 0) {
-        html += new FlashMessage(type, messages).toHtml();
+        html += new FlashMessage(type, messages); //.toHtml();
       }
     });
     return html;
+  },
+  rawMessages: function(req, res) {
+    var messages = '';
+    [ 'info', 'error' ].forEach(function(type) {
+      var messages = req.flash(type);
+      if (messages.length > 0) {
+        messages += new FlashMessage(type, messages);
+      }
+    });
+    return messages;
   },
   isLoggedIn: function(req, res){
       return (req.session.user_id);

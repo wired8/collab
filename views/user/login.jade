@@ -1,81 +1,29 @@
+link(rel="stylesheet", type="text/css", href="http://lab.wired8.com/collab/public/stylesheets/forms.css")
 section#wrapper
   .container
-    .hero-unit
-      h1 col&middot;lab 
-        em /kuh-lab/
-        .about to work, one with another;
-      p Collab is a <b>collaboration</b> tool for working with others.  Exchange messages, files, video, pictures and more, all within your browser.
-      p
-        a(href="#loginModal"
-         data-toggle="modal"
-         class="btn btn-primary btn-large")  Login
-         
-form(method='post', action='/')         
-  .modal.hide.fade#loginModal
-    .modal-header
-      a(data-dismiss="modal"
-       class="close")  x
-      h3 Login
-    .modal-body
-      label(for="user[email]") Username or email
-      input(name='user[email]', size=40, value=user.email || '')
-      label(for="user[password]") Password
-      input(name='user[password]', type='password', size=40, value=user.password || '')
-      p
-        a(href="#forgotPasswordModal"
-         data-dismiss="modal" 
-         data-toggle="modal") Help I forgot my damn password! 
-    .modal-footer
-      a(href="#signupModal"
-       data-dismiss="modal" 
-       data-toggle="modal"
-       class="pull-left") Sign me up
-      a(data-dismiss="modal"
-       class="btn")  Cancel
-      button(type="submit" 
-        class="btn btn-primary") Login
-
-form(method='post', action='/register')
-  fieldset
-    .modal.hide.fade#signupModal
-      .modal-header
-        a(data-dismiss="modal"
-         class="close")  x
-        h3 Create a collab account
+    .row
+      .gap-30
+    form(method='post', action='/login', id='login-form', class="well")
+      - if (flashMessages.length > 0)
+        .alert(class='alert-error fade in') 
+          a(class="close", data-dismiss="alert") &times;
+          - each message in flashMessages
+           #{message}
+      fieldset
+        h3 Login
+        .gap-20
+        .control-group
+          label(class='control-label', for='email') Email:
+          .controls
+            input.required(name='email', id='email', size=40)
+        .control-group
+          label(class='control-label', for='password') Password:
+          .controls
+            input.required(name='password', id='password', type='password', size=40) 
         p
-          | Enter some basic details below to join <b>collab</b> and start collaborating now!
-      .modal-body
-        label(for='register[username]') Username:
-        input.required(name='register[name]', size=40, value=register.name || '')
-        label(for='register[email]') Email:
-        input.required(name='register[email]', size=40, value=register.email || '')
-        label(for='register[password]') Password:
-        input.required(name='register[password]', type='password', size=40)
-        label(for='password_verify') Verify Password:
-        input.required(name='password_verify', type='password', size=40)      
-      .modal-footer
-        a(data-dismiss="modal"
-         class="btn")  Cancel
+          a(href="/forgotpassword") Help I forgot my damn password!   
         button(type="submit" 
-          class="btn btn-primary") Create my account
-
-form(method='post', action='/forgotpassword')    
-  .modal.hide.fade#forgotPasswordModal
-    .modal-header
-      a(data-dismiss="modal"
-       class="close")  x
-      h3 Forgot your password?
-      p
-        | <b>collab</b>
-        | will send password reset instructions to the email address associated with your user account. 
-    .modal-body
-      label(for="user_login") Email
-      .input
-        input(name='user[email]', size=40, value=user.email || '')
-    .modal-footer
-      a(data-dismiss="modal"
-       class="btn")  Cancel
-      button(type="submit" 
-        class="btn btn-primary") Send instructions
-
-  
+          class="btn btn-primary") Login
+        &nbsp;
+        a(href="/register", class="btn btn-info") Join Collab
+     
