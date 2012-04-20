@@ -1,6 +1,9 @@
+html, body {
+    overflow: hidden;
+}
+
 html, body, .container, .content {
     height: 100%;
-    overflow: hidden;
 }
 
 .container, .content {

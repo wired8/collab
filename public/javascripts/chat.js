@@ -33,15 +33,12 @@ head.ready(function(){
 	    	$(".users ul").append($("<li id='" + user.id + "' class='username'><a href='#users/"+ user.id + "'><i class='" + userclass + "'></i>" + "\n" + user.name + "</a></li>").hide().fadeIn(600));
 	    	console.log('added ' + user.id + ' : ' + user.name);
 	    	
-       	$('li > a').click(function() {
-				  $('li').not('.nav-header').removeClass();
+       	$('#user-list li > a').click(function() {
+				  $('#user-list li').not('.nav-header').removeClass();
 				  $(this).parent().addClass('active');
 				});
 	    } 
     }
-   
-    
-   
 
 	  
 	  now.removeUsers = function(users) {
@@ -79,6 +76,8 @@ head.ready(function(){
 	  $(".change").click(function(){
 	    now.changeRoom($(this).text());
 	  });
+	  
+	  
 
 	  utils.autoResizeChatWindow();		
 });

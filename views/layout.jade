@@ -20,4 +20,7 @@ html
               a(href="/about") About
             li
               a(href="/contact") Contact
+          - if (isLoggedIn)
+            != partial('user/account')
+
 !{body}

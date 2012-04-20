@@ -55,8 +55,12 @@ app.post('/resetpassword', function(req, res) {
 
 // password has been reset form route
 app.get('/', function(req, res) {
-	res.render('user/home', {
-  });	
+	if (req.session && req.currentUser) {
+		res.redirect('/chat');
+	} else {
+		res.render('user/home', {
+  	});	
+  }
 });
 
 // login form route
@@ -107,7 +111,7 @@ app.get('/logout', auth.loadUser, function(req, res) {
     res.clearCookie('logintoken');
     req.session.destroy(function() {});
   }
-  res.redirect('/home');
+  res.redirect('/');
 });
 
 // register form route
