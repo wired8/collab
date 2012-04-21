@@ -2,7 +2,7 @@ var email = require("../lib/email");
 
 // login route
 app.post('/login', function(req, res) {
-  User.findOne({ email: req.body.email }, function(err, user) {
+  User.findOne({ $or:[{ email: req.body.email }, { name: { $regex : new RegExp(req.body.email, "i") } }] }, function(err, user) {
     if (user && user.authenticate(req.body.password)) {
       req.session.user_id = user.id;
       req.session.username = user.name;
@@ -55,7 +55,7 @@ app.post('/resetpassword', function(req, res) {
 
 // password has been reset form route
 app.get('/', function(req, res) {
-	if (req.session && req.currentUser) {
+	if (req.session && req.session.user_id) {
 		res.redirect('/chat');
 	} else {
 		res.render('user/home', {

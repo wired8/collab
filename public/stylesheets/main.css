@@ -118,6 +118,10 @@ body {
   vertical-align: top;
 }
 
+.message {
+	padding-top: 5px;
+}
+
 .sidebar-nav {
 	margin-top: 40px;
   border-radius: 4px 4px 4px 4px;

@@ -65,5 +65,8 @@ exports.dynamicHelpers = {
   },
   isLoggedIn: function(req, res){
       return (req.session.user_id);
+  },
+  getUsername: function(req, res){
+  	return (req.session.username);
   }
 };
