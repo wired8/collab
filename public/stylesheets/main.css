@@ -4,6 +4,7 @@ html, body {
 }
 body {
   padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+  background: #F5F5F5;
 }
 .container > footer p {
   text-align: center; /* center align it with the container */
@@ -20,9 +21,9 @@ body {
   -webkit-border-radius: 0 0 6px 6px;
      -moz-border-radius: 0 0 6px 6px;
           border-radius: 0 0 6px 6px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-          box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 /* Page header tweaks */
@@ -64,9 +65,13 @@ body {
 }
 
 .sendbar.well {
+  background: -moz-linear-gradient(#FCFCFC, #EBEBEB) repeat scroll 0 0 transparent;
 	border-radius: 0 0 4px 4px;
-	border-top: medium none;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 	padding: 10px 0 0 5px;
+	 -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .sendbar input {
@@ -108,10 +113,12 @@ body {
   border: 1px solid #CCCCCC;
   border-bottom: none;
   border-radius: 5px 5px 0px 0px;
-  box-shadow: 0 2px 2px #EEEEEE inset;
   margin-left: 0;
   margin-top: 25px;
   padding: 5px;
+   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .messages {
@@ -130,7 +137,6 @@ body {
 .users.well.sidebar-nav {
   font-size: 12px;
   padding-left: 0 !important;
-  border-top: none;
 }
 
 .nav {
@@ -164,10 +170,10 @@ body {
 }
 
 .well {
-  background: none repeat scroll 0 0 whitesmoke;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: none repeat scroll 0 0 #fff;
+  border: 1px solid #ccc;
   border-radius: 4px 4px 4px 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   margin-bottom: 20px;
   min-height: 20px;
 }

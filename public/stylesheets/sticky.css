@@ -18,13 +18,13 @@ html, body, .container, .content {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -223px; /* same as the footer */
+    margin: 0 auto -180px; /* same as the footer */
 }
 
 .push {
-    height: 223px; /* same as the footer */
+    height: 180px; /* same as the footer */
 }
 .footer-wrapper {
     position: relative;
-    height: 223px;
+    height: 180px;
 }
