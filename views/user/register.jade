@@ -1,0 +1,35 @@
+link(rel="stylesheet", type="text/css", href="http://lab.wired8.com/collab/public/stylesheets/forms.css")
+section#wrapper
+  .container
+    .row
+      .gap-30
+    form(method='post', id='register-form', action='/register', class="well")
+      fieldset
+        h3 Create a collab account
+        .gap-20
+        p
+          | Enter some basic details below to join <b>collab</b> and start collaborating now!
+        .control-group
+          label(class='control-label'
+            for='email') Email:
+          .controls
+            input.required(name='email', id='email', size=40)
+        .control-group
+          label(class='control-label'
+            for='password') Username:
+          .controls
+            input.required(name='name', id='name', size=40)
+        .control-group
+          label(class='control-label'
+            for='password') Password:
+          .controls
+            input.required(name='password', id='password', type='password', size=40)
+        .control-group
+          label(class='control-label'
+            for='password_verify') Verify Password:
+          .controls
+            input.required(name='password_verify', id='password_verify', type='password', size=40)      
+        button(type="submit" 
+          class="btn btn-primary") Join
+
+- scripts.push('register.js'); 

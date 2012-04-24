@@ -1,0 +1,9 @@
+<div>{{username}},</div>
+<br/>
+<div>Welcome to <b>Collab</b> your online collaboration tool.</div>
+<br/>
+<div><a href="{{loginurl}}">Login now</a> to begin collaborating!</div>
+<br/>
+<div>Regards,</div>
+<br/>
+<div><b>The Collab Team</b></div>

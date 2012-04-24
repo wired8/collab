@@ -1,0 +1,11 @@
+ul.nav(class="pull-right")
+  li.dropdown(id="account-menu")
+    a(class="dropdown-toggle", data-toggle="dropdown", href="#") 
+      | Account <b class="caret"></b>
+    ul(class="dropdown-menu")
+      li
+        a(href="/profile")
+          =getUsername
+      li.divider
+      li 
+        a(href="/logout") Logout
