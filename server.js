@@ -92,7 +92,7 @@ app.configure(function(){
 
 //configure mongoose models
 models.defineModels(mongoose, function() {
-  app.Message = BlogPost = mongoose.model('Message');
+  app.Message = Message = mongoose.model('Message');
   app.User = User = mongoose.model('User');
   app.LoginToken = LoginToken = mongoose.model('LoginToken');
   db = mongoose.connect(app.set('connstring'));

@@ -59,6 +59,23 @@ body {
 .span8 {
 }
 
+p.label_checkbox {
+	clear: both;
+	float: none;
+	position: relative;
+}
+p.label_checkbox input {
+	position: absolute;
+}
+p.label_checkbox label {
+  display: block;
+  margin-left: 20px;
+  width: 200px;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+}
+
 .sendbar {
   padding-bottom: 20px;
   padding-top: 20px;

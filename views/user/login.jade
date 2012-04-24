@@ -19,7 +19,10 @@ section#wrapper
         .control-group
           label(class='control-label', for='password') Password:
           .controls
-            input.required(name='password', id='password', type='password', size=40) 
+            input.required(name='password', id='password', type='password', size=40)
+        p(class='label_checkbox')
+          input(name='remember_me', id='remember_me', type='checkbox')  
+          label(class='control-label', for='remember_me') Remember me
         p
           a(href="/forgotpassword") Help I forgot my damn password!   
         button(type="submit" 
