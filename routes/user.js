@@ -1,4 +1,5 @@
 var email = require("../lib/email");
+var common = require("../lib/common");
 
 // login route
 app.post('/login', function(req, res) {
@@ -95,7 +96,7 @@ app.get('/emailsent', function(req, res) {
 app.post('/forgotpassword', function(req, res) {
   User.findOne({ email: req.body.email }, function(err, user) {
     if (user) {
-      email.forgotPassword(user.email, user.name, 'http://lab.wired8.com:3000', 'http://lab.wired8.com:3000/resetpassword/' + user.hashed_password);
+      email.forgotPassword(user.email, user.name, common.baseUrl(req), common.baseUrl(req) + '/resetpassword/' + user.hashed_password);
       res.redirect('/emailsent');
     } else {
       req.flash('error', 'No such account!');
@@ -178,7 +179,7 @@ app.post('/register', function(req, res) {
           nUser.save(function(err) {
             if (err) res.redirect('/error');
             req.flash('info', 'Registration successful');
-            email.register(req.body.email, req.body.password, req.body.name, 'http://lab.wired8.com:3000/login');
+            email.register(req.body.email, req.body.password, req.body.name, common.baseUrl(req) + '/login');
             res.redirect('/emailsent');
           });
         }

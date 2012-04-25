@@ -65,6 +65,7 @@ app.configure('production', function(){
 
 //configure server instance
 app.configure(function(){
+  app.use(express.static(__dirname + '/public'));
   app.set('connstring', 'mongodb://' + app.set('m_host') + '/' + app.set('m_database'));
   app.set('views', __dirname + '/views');
   // set jade as default view engine
@@ -87,7 +88,6 @@ app.configure(function(){
   app.use(app.router);
   // use express logger
   app.use(express.logger({ format: '\x1b[1m:method\x1b[0m \x1b[33m:url\x1b[0m :response-time ms' }));
-  app.use(express.static(__dirname + '/public'));
 });
 
 //configure mongoose models

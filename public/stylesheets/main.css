@@ -45,6 +45,13 @@ body {
   border-left: 1px solid #eee;
 }
 
+.brand {
+	background-image: url("../images/collab-logo.png");
+	background-position: 80px 9px;
+	background-repeat: no-repeat;
+	padding-right: 35px !important;
+}
+
 .gap-20 {
 	margin-top: 20px;
 }

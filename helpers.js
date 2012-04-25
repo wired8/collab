@@ -3,6 +3,8 @@ exports.helpers = {
     return name + ' v' + version;
   },
   
+ 
+  
   appName: 'collab',
   version: '0.1'
 };
