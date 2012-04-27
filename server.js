@@ -58,8 +58,8 @@ app.configure('development', function(){
 app.configure('production', function(){
   app.set('m_database', 'collab');
   app.set('m_host', 'localhost');
-  app.set('port', 3002);
-  app.set('host', 'lab.wired8.com');
+  app.set('port', 8080);
+  app.set('host', 'chat.wired8.com');
   app.use(express.errorHandler());
 });
 
