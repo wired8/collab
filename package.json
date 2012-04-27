@@ -21,7 +21,7 @@
     "now-middleware": ">=0.8.0",
     "now-sessions": ">=0.8.0",
     "redis": ">=0.8.0",
-    "stylus": ">=0.8.0",
+    "stylus": ">=0.8.0"
   },
   "main": "server",
   "engines": "node >= 0.4.x"
