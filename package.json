@@ -5,6 +5,7 @@
   "keywords": ["chat", "colloborate", "share"],
   "author": "Phil Jepsen <phil@wired8.com>",
   "dependencies": {
+    "node-proxy" : "*",
     "connect-mongo": "*",
     "connect-redis": "*",
     "dnode": "*",
