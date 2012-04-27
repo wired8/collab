@@ -70,5 +70,9 @@ exports.dynamicHelpers = {
   },
   getUsername: function(req, res){
   	return (req.session.username);
+  },
+  
+  getUrl: function(req, res){
+  	return req.headers.host;
   }
 };
