@@ -28,7 +28,7 @@ app.dynamicHelpers(require('./helpers.js').dynamicHelpers);
 
 app.helpers({ renderScriptTags: function(scripts) {
   return scripts.map(function(script) {
-    return '<script src="http://lab.wired8.com/collab/public/javascripts/' + script + '"></script>';
+    return '<script src="/javascripts/' + script + '"></script>';
   }).join('\n ');
 }});
 
