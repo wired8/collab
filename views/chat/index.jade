@@ -2,37 +2,25 @@ link(rel="stylesheet", type="text/css", href="/stylesheets/chat.css")
 link(rel="stylesheet", type="text/css", href="/stylesheets/syntaxhighlighter/shThemeDefault.css")
 .container
   .wrapper
-    .row-fluid
-      .span9
-	    .nav(class="nav-tabs")
-          li
-            a(href="#home", data-toggle="tab") 
-              Home
-        .messages-container
-          .messages
-      .span3
-        .users(class="well sidebar-nav")
-          ul(id="user-list"
-          class="nav nav-list")
-            li(class="nav-header")  Users
+    h1 Rooms
+    ul(class="nav nav-pills")
+      li(class="active")
+        a(href="#all", data-toggle="tab") all
+        
+    .tab-content
+      .tab-pane(class="active", id="all")      
+        .row-fluid
+          .span12
+            p a list of all rooms
+            .rooms
     .push
-  .footer-wrapper
-    .row-fluid
-      .span9
-        .sendbar(class="well")
-          table(class="chat")
-            tr
-              td(class="chat-text")
-                textarea(id="text-input")
-              td(class="spacer")
-                .spacer(class="spacer")
-              td(class="send-button")
-                input(type="button"
-                class="btn-large btn-primary"
-                value="Send"
-                id="send-button")
+    .footer-wrapper
+      input(type="button"
+      class="btn-large btn-primary"
+      value="Create a room"
+      id="create-room-button")   
     .footer
       footer  &copy; Vision Critical 2012
 
-- scripts.push('chat.js'); 
+- scripts.push('rooms.js'); 
   script(type='text/javascript', src='http://' + getUrl + ':8080/nowjs/now.js')

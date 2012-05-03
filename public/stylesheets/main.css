@@ -138,7 +138,6 @@ p.label_checkbox label {
   border-bottom: none;
   border-radius: 5px 5px 0px 0px;
   margin-left: 0;
-  margin-top: 25px;
   padding: 5px;
    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -154,8 +153,11 @@ p.label_checkbox label {
 }
 
 .sidebar-nav {
-	margin-top: 40px;
   border-radius: 4px 4px 4px 4px;
+}
+
+.nav-tabs, .nav-pills {
+  padding-top: 20px;
 }
 
 .users.well.sidebar-nav {
@@ -251,6 +253,19 @@ h1 em {
   border-radius: 5px 5px 5px 5px;
 }
 
+.message-wrapper-user {
+  background: none repeat scroll 0 0 #E0F2F7;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.message-wrapper-user  .message-time {
+  background: none repeat scroll 0 0 #ffffff !important;
+}
+
+.message-wrapper-user .avatar {
+  background: none repeat scroll 0 0 #ffffff !important; 
+}
+
 .message-inner {
   margin-left: 58px;
 }
@@ -304,9 +319,6 @@ div.screen-name {
   text-align: right;
   vertical-align: top;
 }
-
-
-
 
 div.server {
   display: inline-block;

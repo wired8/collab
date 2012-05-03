@@ -1,7 +1,10 @@
 head.ready(function(){
     
 	  now.receiveMessage = function(user, message){
-	    $(".messages").append("<div class='" + message.classname + "'>" +
+	    if (now.session && now.session.email == user.email && !user.isserver) {
+			message.classname = 'message-wrapper message-wrapper-user';
+		} 
+	    $(".messages").append($("<div class='" + message.classname + "'>" +
 	    		      "  <div class='message-inner'>" +
 							  "    <div class='title'>" +
 							  "      <a class='account'><img class='avatar' src='" + (user.avatar.length > 0 ? user.avatar : 'http://lab.wired8.com/collab/public/images/user.png') + "' /></a>" +
@@ -9,8 +12,8 @@ head.ready(function(){
 							  "      <div class='message-time'>" + message.time + "</div>" +
 							  "    </div>" +
 							  "    <div class='message'>" + message.message + "</div>" +
-							   "   </div>" +
-							  "  </div>");
+							  "   </div>" +
+							  "  </div>").hide().fadeIn(600));
 	    $(".messages-container").scrollTop($(".messages-container")[0].scrollHeight);
 	  }
 	  

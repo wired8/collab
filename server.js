@@ -13,6 +13,7 @@ var nowjs = require('now')
   , redis = require("redis")
   , RedisStore = require('connect-redis')(express)
   , chat = require('./lib/chat')
+  , rooms = require('./lib/rooms')
   , sessionStore
   , db;
   
@@ -126,6 +127,8 @@ if (!module.parent) {
 }
 
 var everyone = chat.initialize(app, sessionStore);
+rooms.initialize();
+
 
 
 

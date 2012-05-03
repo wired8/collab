@@ -11,20 +11,20 @@ html, body, .container, .content {
 }
 
 .messages-container {
-    margin-top: 40px; /* >= navbar height */
+    margin-top: 0px; /* >= navbar height */
 }
 
 .wrapper {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -180px; /* same as the footer */
+    margin: 0 auto -195px; /* same as the footer */
 }
 
 .push {
-    height: 180px; /* same as the footer */
+    height: 195px; /* same as the footer */
 }
 .footer-wrapper {
     position: relative;
-    height: 180px;
+    height: 195px;
 }
