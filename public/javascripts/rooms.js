@@ -1,6 +1,7 @@
 head.ready(function(){
 	
 	now.addRooms = function(rooms) {
+	    $(".rooms").empty();
 	  	for (var room in rooms) {
 	  		now.addRoom(rooms[room]);
 	  	}
@@ -17,7 +18,10 @@ head.ready(function(){
 	                     "</div>");
 	  
 	}
-
+	
+	now.ready(function(){
+	  now.getRooms();
+  });
 
 
 });

@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -13,7 +12,6 @@ var nowjs = require('now')
   , redis = require("redis")
   , RedisStore = require('connect-redis')(express)
   , chat = require('./lib/chat')
-  , rooms = require('./lib/rooms')
   , sessionStore
   , db;
   
@@ -51,7 +49,7 @@ function compile(str, path, fn) {
 app.configure('development', function(){
   app.set('m_database', 'collab-dev');
   app.set('m_host', 'localhost');
-  app.set('port', 3000);
+  app.set('port', 8080);
   app.set('host', 'localhost');
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
@@ -59,7 +57,7 @@ app.configure('development', function(){
 app.configure('production', function(){
   app.set('m_database', 'collab');
   app.set('m_host', 'localhost');
-  app.set('port', 8080);
+  app.set('port', 6969);
   app.set('host', 'chat.wired8.com');
   app.use(express.errorHandler());
 });
@@ -127,7 +125,7 @@ if (!module.parent) {
 }
 
 var everyone = chat.initialize(app, sessionStore);
-rooms.initialize();
+
 
 
 
