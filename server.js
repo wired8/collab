@@ -91,6 +91,7 @@ app.configure(function(){
 
 //configure mongoose models
 models.defineModels(mongoose, function() {
+  app.Room = Room = mongoose.model('Room');
   app.Message = Message = mongoose.model('Message');
   app.User = User = mongoose.model('User');
   app.LoginToken = LoginToken = mongoose.model('LoginToken');

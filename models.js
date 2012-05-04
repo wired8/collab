@@ -75,15 +75,29 @@ function defineModels(mongoose, fn) {
    * Used for persisting chat messages
    */
   var Message = new Schema({
-    posted: Date,
-    user: ObjectId,
+    created: Date,
+    userid: ObjectId,
+	roomid: ObjectId,
     message: String
   });
   
   Message.virtual('posteddate')
     .get(function() {
-      return date.toReadableDate(this.posted, 'datestamp');
+      return date.toReadableDate(this.created, 'datestamp');
     });
+	
+  /**
+   * Room model
+   * 
+   * Used for persisting chat rooms
+   */
+  var Room = new Schema({
+    name: String,
+	type: String,
+	description: String,
+    userid: ObjectId,
+	created: Date
+  });
   
   /**
    * LoginToken model
@@ -117,6 +131,7 @@ function defineModels(mongoose, fn) {
   });
   
   // register mongoose models
+  mongoose.model('Room', Room);
   mongoose.model('Message', Message);
   mongoose.model('User', User);
   mongoose.model('LoginToken', LoginToken);
