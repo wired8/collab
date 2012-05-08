@@ -15,7 +15,7 @@ app.post('/login', function(req, res) {
           res.cookie('logintoken', loginToken.cookieValue, { expires: new Date(Date.now() + 2 * 604800000), path: '/' });
         });
       }
-      res.redirect('/chat');
+      res.redirect('/lobby');
     } else {
       req.flash('error', 'Wrong Username/Email and password combination.');
       res.redirect('/login');

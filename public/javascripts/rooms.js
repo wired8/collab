@@ -8,13 +8,14 @@ head.ready(function () {
 	}
 	
 	now.addRoom = function (room) {
-		$(".rooms").append("<div id='" + room.id + "'>" +
-			"  <div class='room-header'><h3><span><a href='#' onclick='joinRoom(\"" + room.title + "\")'>" + room.title + "</a></span></h3></div>" +
+		$(".rooms").append("" +
+		    "<div class='well' id=" + room.id + "'>" +
+			"  <div class='room-header'><h3><span><a href='#' onclick='joinRoom(\"" + room.title + "\")'>" + room.title + "</a></span></h3>" +
 			"    <div class='room-description'>" + room.description + "</div>" +
 			"  </div>" +
 			"  <div class='room-details'>" + room.details + "</div>" +
-			"  <div class='room-message-count'>" + room.messagecount + "</div>" +
-			"  <div class='room-user-count'>" + room.usercount + "</div>" +
+			"  <div class='room-message-count'>" + room.messagecount + " total messages</div>" +
+			"  <div class='room-user-count'>" + room.usercount + " active users</div>" +
 			"</div>");
 		
 	}

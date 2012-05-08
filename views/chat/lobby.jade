@@ -1,0 +1,26 @@
+link(rel="stylesheet", type="text/css", href="/stylesheets/chat.css")
+.container
+  .wrapper
+    h1 Lobby
+    ul(class="nav nav-pills")
+      li(class="active")
+        a(href="#all", data-toggle="tab") all
+        
+    .tab-content
+      .tab-pane(class="active", id="all")      
+        .row-fluid
+          .span12
+            p a list of all rooms
+            .rooms
+    .push
+    .footer-wrapper
+      input(type="button"
+      class="btn-large btn-primary"
+      value="Create a room"
+      id="create-room-button")   
+    .footer
+      footer  &copy; Vision Critical 2012
+
+  
+- scripts.push('rooms.js'); 
+  script(type='text/javascript', src='http://lab.wired8.com:8080/nowjs/now.js')

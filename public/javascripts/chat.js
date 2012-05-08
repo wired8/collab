@@ -7,7 +7,7 @@ head.ready(function () {
 		$(".messages").append($("<div class='" + message.classname + "'>" +
 				"  <div class='message-inner'>" +
 				"    <div class='title'>" +
-				"      <a class='account'><img class='avatar' src='" + (user.avatar.length > 0 ? user.avatar : 'http://lab.wired8.com/collab/public/images/user.png') + "' /></a>" +
+				"      <a class='account'><img class='avatar' src='" + (user.avatar.length > 0 ? user.avatar : '/images/user.png') + "' /></a>" +
 				"      <div class='screen-name'>" + user.name + "</div>" +
 				"      <div class='message-time'>" + message.time + "</div>" +
 				"    </div>" +

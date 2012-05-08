@@ -11,9 +11,9 @@ app.get('/chat', auth.loadUser, function(req, res, next) {
   });
 });
 
-app.get('/index', auth.loadUser, function(req, res, next) {
+app.get('/lobby', auth.loadUser, function(req, res, next) {
   // render chat interface
-  res.render('chat/index', { locals:
+  res.render('chat/lobby', { locals:
     {
       user: req.currentUser,
       host: app.set('host'),
