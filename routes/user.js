@@ -1,3 +1,4 @@
+var mongoose = require("mongoose");
 var email = require("../lib/email");
 var common = require("../lib/common");
 
@@ -102,6 +103,21 @@ app.post('/forgotpassword', function(req, res) {
       req.flash('error', 'No such account!');
       res.redirect('/error');
     }
+  });
+});
+
+// create new room route
+app.post('/newroom', function(req, res) {
+	var nRoom = new Room();
+	nRoom.name = req.body.roomname;
+	nRoom.description = req.body.roomsubject;
+	nRoom.type = req.body.create_room_access;
+	nRoom.userid = mongoose.Types.ObjectId(req.session.user_id);
+	nRoom.created = new Date();
+	nRoom.save(function(err) {
+    if (err) res.redirect('/error');
+    req.flash('info', 'New room created');
+    res.redirect('/lobby');
   });
 });
 

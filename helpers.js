@@ -3,10 +3,8 @@ exports.helpers = {
     return name + ' v' + version;
   },
   
- 
-  
   appName: 'collab',
-  version: '0.1'
+  version: '0.1',
 };
 
 // flash message class
@@ -74,5 +72,9 @@ exports.dynamicHelpers = {
   
   getUrl: function(req, res){
   	return req.headers.host;
-  }
+  },
+  
+  getHostName: function(req, res){
+		return 'lab.wired8.com:8080';
+  },
 };

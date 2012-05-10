@@ -341,3 +341,26 @@ div.message-time {
   vertical-align: middle;
 }
 
+
+.newroom input {
+	float: left;
+}
+
+.biginput {
+	width: 310px !important;
+}
+
+.newroom label {
+  padding-left: 20px;
+}
+
+.controls.newroom {
+	padding-left: 0px;
+}
+
+.controls.newroom p {
+	font-size: 12px;
+	color: #999;
+}
+
+

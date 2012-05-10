@@ -93,10 +93,10 @@ function defineModels(mongoose, fn) {
    */
   var Room = new Schema({
     name: String,
-	type: String,
-	description: String,
+	  type: String,
+	  description: String,
     userid: ObjectId,
-	created: Date
+	  created: Date
   });
   
   /**

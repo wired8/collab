@@ -28,4 +28,16 @@ head.ready(function () {
 		now.getRooms();
 	});
 	
+	
+	$('#createroom').modal({
+        backdrop: true,
+        keyboard: true,
+        show: false,
+    }).css({
+        width: '420px',
+        'margin-left': function () {
+            return -($(this).width() / 2);
+        }
+    });
+	
 });
