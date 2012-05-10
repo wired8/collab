@@ -132,6 +132,7 @@ p.label_checkbox label {
 }
 
 .messages-container {
+  font-size: 12px;
   overflow-y: scroll;
   background: #fff;
   border: 1px solid #CCCCCC;
@@ -363,4 +364,8 @@ div.message-time {
 	color: #999;
 }
 
+.loading {
+	padding-top: 15px;
+	padding-left: 10px;
+}
 

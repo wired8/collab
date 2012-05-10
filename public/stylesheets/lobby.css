@@ -2,3 +2,32 @@ body {
 	overflow-y: auto !important;
 	padding-top: 60px;
 }
+
+.rooms {
+	float: left;
+}
+
+.room {
+	width: 215px;
+	float: left;
+	position: relative;
+	overflow: hidden;
+	padding: 5px;
+	margin: 0 5px 10px;
+	height: 185px;
+}
+
+.room-description {
+  max-height: 28px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 5px;
+}
+
+.room-description, .user-description, .room-message-count, .room-user-count {
+  font-size: 0.8em;
+}
+
+.room-header, .user-header {
+  border-bottom: 1px dotted #CCCCCC;
+}

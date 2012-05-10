@@ -1,10 +1,23 @@
 head.ready(function () {
+
+
+    now.loadRoomInfo = function (room) {
+		$(".room-subject").html(room.description);
+	}
 	
-	now.receiveMessage = function (user, message) {
+    now.loadRoomMessages = function (user, messages) {
+		for (var message in messages) {
+			now.receiveMessage(user, messages[message], false);
+		}
+		hideLoading();
+	}
+	
+	now.receiveMessage = function (user, message, effect) {
 		if (now.session && now.session.email == user.email && !user.isserver) {
 			message.classname = 'message-wrapper message-wrapper-user';
 		}
-		$(".messages").append($("<div class='" + message.classname + "'>" +
+
+		var html = $("<div class='" + message.classname + "'>" +
 				"  <div class='message-inner'>" +
 				"    <div class='title'>" +
 				"      <a class='account'><img class='avatar' src='" + (user.avatar.length > 0 ? user.avatar : '/images/user.png') + "' /></a>" +
@@ -13,7 +26,13 @@ head.ready(function () {
 				"    </div>" +
 				"    <div class='message'>" + message.message + "</div>" +
 				"   </div>" +
-				"  </div>").hide().fadeIn(600));
+				"  </div>");
+		
+		if (effect) {
+			$(".messages").append(html); //.hide().fadeIn(600);
+		} else {
+			$(".messages").append(html);
+		}
 		$(".messages-container").scrollTop($(".messages-container")[0].scrollHeight);
 	}
 	
@@ -65,7 +84,7 @@ head.ready(function () {
 	}
 	
 	$('textarea').bind('keypress', function (e) {
-		if (e.which == 13) {
+		if (e.which == 13 && $("#text-input").val().trim().length > 0) {
 			now.distributeMessage($("#text-input").val());
 			$("#text-input").val("");
 			return false;
@@ -73,8 +92,10 @@ head.ready(function () {
 	});
 	
 	$("#send-button").click(function () {
-		now.distributeMessage($("#text-input").val());
-		$("#text-input").val("");
+		if ($("#text-input").val().trim().length > 0) {
+			now.distributeMessage($("#text-input").val());
+			$("#text-input").val("");
+		}
 	});
 	
 	$(".change").click(function () {
@@ -87,6 +108,11 @@ head.ready(function () {
 		var room = document.location.hash.replace('#', '');
 		now.joinRoom(room);
 	});
+	
+	hideLoading = function() {
+	    $('.loading').hide();
+		$('.container').show().fade(500);
+	}
 
 });
 

@@ -9,7 +9,7 @@ head.ready(function () {
 	
 	now.addRoom = function (room) {
 		$(".rooms").append("" +
-		    "<div class='well' id=" + room.id + "'>" +
+		    "<div class='well room' id=" + room.id + "'>" +
 			"  <div class='room-header'><h3><span><a href='#' onclick='joinRoom(\"" + room.title + "\")'>" + room.title + "</a></span></h3>" +
 			"    <div class='room-description'>" + room.description + "</div>" +
 			"  </div>" +
@@ -39,5 +39,9 @@ head.ready(function () {
             return -($(this).width() / 2);
         }
     });
+	
+	closeDialog = function() {
+		$('#createroom').modal('hide');
+	}
 	
 });

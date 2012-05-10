@@ -1,10 +1,15 @@
 link(rel="stylesheet", type="text/css", href="/stylesheets/chat.css")
 link(rel="stylesheet", type="text/css", href="/stylesheets/syntaxhighlighter/shThemeDefault.css")
-.container
+.loading(id='loading')
+  p
+    img(width="32", height="32", src="/images/spinner.gif") 
+    | Loading...
+.container(style='display:none;')
   .wrapper
     ul(class="nav nav-pills")
       li(class="active")
-        a(href="#home", data-toggle="tab", id="name") Collab   
+        a(href="#home", data-toggle="tab", id="name") Collab 
+      .alert(class="room-subject alert-info") 
     .tab-content
       .tab-pane(class="active", id="home")      
         .row-fluid
