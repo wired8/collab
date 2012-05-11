@@ -48,15 +48,15 @@ function compile(str, path, fn) {
 
 app.configure('development', function(){
   app.set('m_database', 'collab-dev');
-  app.set('m_host', 'localhost');
+  app.set('m_host', '127.0.0.1');
   app.set('port', 8080);
-  app.set('host', 'localhost');
+  app.set('host', '127.0.0.1');
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
 app.configure('production', function(){
   app.set('m_database', 'collab');
-  app.set('m_host', 'localhost');
+  app.set('m_host', '127.0.0.1');
   app.set('port', 6969);
   app.set('host', 'chat.wired8.com');
   app.use(express.errorHandler());

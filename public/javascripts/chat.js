@@ -1,14 +1,23 @@
 head.ready(function () {
 
 
-    now.loadRoomInfo = function (room) {
-		$(".room-subject").html(room.description);
+  now.loadRoomInfo = function (room) {
+    $(".room-name").html(room.name);
+    $(".room-name").show();
+		
+		setTimeout(function(){
+			var mrg = $(".room-name").width();
+			$(".room-subject").css('margin-left', mrg+40+'px');
+			$(".room-subject").html(room.description);
+			$(".room-subject").show('slow').fadeIn(200);
+		}, 500);
 	}
 	
-    now.loadRoomMessages = function (user, messages) {
+  now.loadRoomMessages = function (user, messages) {
 		for (var message in messages) {
 			now.receiveMessage(user, messages[message], false);
 		}
+		setTimeout(function(){$(".messages-container").scrollTop($(".messages-container")[0].scrollHeight);}, 200);
 		hideLoading();
 	}
 	
@@ -110,8 +119,8 @@ head.ready(function () {
 	});
 	
 	hideLoading = function() {
-	    $('.loading').hide();
-		$('.container').show().fade(500);
+		$('.loading').hide();
+		$('.container').show();
 	}
 
 });

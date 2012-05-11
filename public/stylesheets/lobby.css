@@ -18,7 +18,7 @@ body {
 }
 
 .room-description {
-  max-height: 28px;
+  max-height: 38px;
   overflow: hidden;
   text-overflow: ellipsis;
   padding-bottom: 5px;
@@ -30,4 +30,11 @@ body {
 
 .room-header, .user-header {
   border-bottom: 1px dotted #CCCCCC;
+}
+
+.room-header h3 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 200px;
 }

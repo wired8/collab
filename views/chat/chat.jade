@@ -8,7 +8,7 @@ link(rel="stylesheet", type="text/css", href="/stylesheets/syntaxhighlighter/shT
   .wrapper
     ul(class="nav nav-pills")
       li(class="active")
-        a(href="#home", data-toggle="tab", id="name") Collab 
+        a(href="#home", data-toggle="tab", class="room-name") Collab 
       .alert(class="room-subject alert-info") 
     .tab-content
       .tab-pane(class="active", id="home")      
@@ -42,4 +42,4 @@ link(rel="stylesheet", type="text/css", href="/stylesheets/syntaxhighlighter/shT
       footer  &copy; Vision Critical 2012
 
 - scripts.push('chat.js'); 
-  script(type='text/javascript', src='http://lab.wired8.com:8080/nowjs/now.js')
+  script(type='text/javascript', src='http://' + getHostName + '/nowjs/now.js')
