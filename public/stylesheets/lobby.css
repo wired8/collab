@@ -38,3 +38,10 @@ body {
 	text-overflow: ellipsis;
 	max-width: 200px;
 }
+
+.rooms-pagination {
+	width: auto;
+	height: 50px;
+	position: relative;
+	z-index: 1000;
+}

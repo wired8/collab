@@ -9,16 +9,19 @@ head.ready(function () {
 		}
 		
 		var pages = "";
-		for (var i=0; i<roomPages.totalPages; i++){
-		  var link = 'onclick=\'now.getRooms(' + (i+1) + ',' + pagesize + ');\'';
-		  pages += (roomPages.currentpage == i ? "<li class='active'><a href='#'>" + (i+1) + "</a></li>" :  "<li><a href='#' " + link + ">" + (i+1) + "</a></li>");	
-		}		
+		for (var i=1; i<roomPages.totalPages+1; i++){
+		  var link = 'onclick=\'now.getRooms(' + i + ',' + pagesize + ');\'';
+		  pages += (roomPages.currentpage == i ? "<li class='active'><a href='#'>" + i + "</a></li>" :  "<li><a href='#' " + link + ">" + i + "</a></li>");	
+		}
+		
+		var back = (roomPages.currentpage > 1 ? '<li><a href=\'#\' onclick=\'now.getRooms(' + (roomPages.currentpage-1) + ',' + pagesize + ');\'>&larr;</a></li>' : '<li><a href=\'#\'>&larr;</a></li>');	
+		var next = (roomPages.currentpage < roomPages.totalPages ? '<li><a href=\'#\' onclick=\'now.getRooms(' + (roomPages.currentpage+1) + ',' + pagesize + ');\'>&rarr;</a></li>' : '<li><a href=\'#\'>&rarr;</a></li>');	
 		
 		var pagination = "<div class='pagination pagination-centered'>" +
-					     "<ul>" +
-						 "<li><a href='#'>&larr;</a></li>" +
+					   "<ul>" +
+						 back +
 						 pages +
-						 "<li><a href='#'>&rarr;</a></li>" +
+						 next +
 						 "</ul>" +
 						 "</div>";
 		
@@ -44,7 +47,7 @@ head.ready(function () {
 	}
 	
 	now.ready(function () {
-		now.getRooms(0, pagesize);
+		now.getRooms(1, pagesize);
 	});
 	
 	
