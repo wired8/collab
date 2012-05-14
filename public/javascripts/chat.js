@@ -1,33 +1,34 @@
 head.ready(function () {
-
-
-  now.loadRoomInfo = function (room) {
+	
+	now.loadRoomInfo = function (room) {
 		if (room == null) {
 			bootbox.dialog("This room doesn't exist!", {
 				"label" : "Back to lobby",
 				"class" : "btn-primary",
-				"callback": function() {
+				"callback" : function () {
 					location.href = "/lobby";
-				  }
+				}
 			});
-    }
-    
-    $(".room-name").html(room.name);
-    $(".room-name").show();
+		}
 		
-		setTimeout(function(){
+		$(".room-name").html(room.name);
+		$(".room-name").show();
+		
+		setTimeout(function () {
 			var mrg = $(".room-name").width();
-			$(".room-subject").css('margin-left', mrg+40+'px');
+			$(".room-subject").css('margin-left', mrg + 40 + 'px');
 			$(".room-subject").html(room.description);
 			$(".room-subject").show('slow').fadeIn(200);
 		}, 500);
 	}
 	
-  now.loadRoomMessages = function (user, messages) {
+	now.loadRoomMessages = function (messages) {
 		for (var message in messages) {
-			now.receiveMessage(user, messages[message], false);
+			now.receiveMessage(messages[message].user, messages[message], false);
 		}
-		setTimeout(function(){$(".messages-container").scrollTop($(".messages-container")[0].scrollHeight);}, 200);
+		setTimeout(function () {
+			$(".messages-container").scrollTop($(".messages-container")[0].scrollHeight);
+		}, 200);
 		hideLoading();
 	}
 	
@@ -35,7 +36,7 @@ head.ready(function () {
 		if (now.session && now.session.email == user.email && !user.isserver) {
 			message.classname = 'message-wrapper message-wrapper-user';
 		}
-
+		
 		var html = $("<div class='" + message.classname + "'>" +
 				"  <div class='message-inner'>" +
 				"    <div class='title'>" +
@@ -123,16 +124,16 @@ head.ready(function () {
 	
 	utils.autoResizeChatWindow();
 	
-	now.ready(function() {
+	now.ready(function () {
 		var room = document.location.hash.replace('#', '');
 		now.joinRoom(room);
 	});
 	
-	hideLoading = function() {
+	hideLoading = function () {
 		$('.loading').hide();
 		$('.container').show();
 	}
-
+	
 });
 
 var utils = {
