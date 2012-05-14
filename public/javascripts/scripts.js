@@ -4,7 +4,8 @@
       {bootstrapmodal: "/javascripts/bootstrap-modal.js"},
       {bootstrapdropdown: "/javascripts/bootstrap-dropdown.js"},
       {bootstrapalert: "/javascripts/bootstrap-alert.js"},
-      {jqueryvalidate: "/javascripts/jquery.validate.pack.js"}
+      {jqueryvalidate: "/javascripts/jquery.validate.pack.js"},
+      {bootbox: "/javascripts/bootbox.min.js"}
     );
   
     head.ready(function() {

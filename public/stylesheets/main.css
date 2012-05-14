@@ -4,7 +4,7 @@ html, body {
 }
 body {
   padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
-  background: #F5F5F5;
+  background: url("/images/bg.png") repeat scroll 0 0 transparent;
 }
 .container > footer p {
   text-align: center; /* center align it with the container */

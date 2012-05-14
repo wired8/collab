@@ -58,7 +58,7 @@ app.post('/resetpassword', function(req, res) {
 // password has been reset form route
 app.get('/', function(req, res) {
 	if (req.session && req.session.user_id) {
-		res.redirect('/chat');
+		res.redirect('/lobby');
 	} else {
 		res.render('user/home', {
   	});	

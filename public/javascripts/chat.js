@@ -2,6 +2,16 @@ head.ready(function () {
 
 
   now.loadRoomInfo = function (room) {
+		if (room == null) {
+			bootbox.dialog("This room doesn't exist!", {
+				"label" : "Back to lobby",
+				"class" : "btn-primary",
+				"callback": function() {
+					location.href = "/lobby";
+				  }
+			});
+    }
+    
     $(".room-name").html(room.name);
     $(".room-name").show();
 		
