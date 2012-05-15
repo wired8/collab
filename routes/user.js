@@ -146,6 +146,18 @@ app.get('/error', function(req, res) {
   });
 });
 
+// register about route
+app.get('/about', function(req, res) {
+  res.render('user/about', {
+  });
+});
+
+// register contact route
+app.get('/contact', function(req, res) {
+  res.render('user/contact', {
+  });
+});
+
 app.get('/delete/:email', function(req, res) {
   User.remove({ email: req.params.email }, function(err, user) {
   	if (err) res.redirect('/error');

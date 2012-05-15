@@ -4,6 +4,11 @@ section#wrapper
     .row
       .gap-30
     form(method='post', id='register-form', action='/register', class="well")
+      - if (flashMessages.length > 0)
+        .alert(class='alert-error fade in') 
+          a(class="close", data-dismiss="alert") &times;
+          - each message in flashMessages
+            #{message}
       fieldset
         h3 Create a collab account
         .gap-20

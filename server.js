@@ -47,7 +47,7 @@ function compile(str, path, fn) {
 }
 
 app.configure('development', function(){
-  app.set('m_database', 'collab-dev');
+  app.set('m_database', 'collab-demo');
   app.set('m_host', '127.0.0.1');
   app.set('port', 8080);
   app.set('host', '127.0.0.1');
