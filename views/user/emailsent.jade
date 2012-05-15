@@ -4,7 +4,10 @@ section#wrapper
     h1
       | Email sent!
     .gap-20
-    p You should receive an email in your inbox shortly (or possibly in your spam folder...)
-    p If you don't receive an email please <a href="/contact">contact us</a>.
-    .image
+      .alert(class='alert-error') 
+        | <strong>NOTE: Email is not currently working due to IT restrictions.</strong>
+        | Account registration is automatic so please go and <a href="/login">login</a> now! 
+      p You should receive an email in your inbox shortly (or possibly in your spam folder...)
+      p If you don't receive an email please <a href="/contact">contact us</a>.
+      .image
       
