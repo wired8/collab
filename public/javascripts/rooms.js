@@ -54,7 +54,7 @@ head.ready(function () {
 	$('#createroom').modal({
         backdrop: true,
         keyboard: true,
-        show: false,
+        show: false
     }).css({
         width: '420px',
         'margin-left': function () {

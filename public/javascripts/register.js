@@ -5,19 +5,19 @@ head.ready(function(){
   rules: {
     email: {
       required: true,
-      email: true,
+      email: true
     },
     name: {
-    	required: true,
+    	required: true
     },
     password: {
       required: true,
-      minlength: 6,
+      minlength: 6
     },
     password_verify: {
       required: true,
       equalTo: "#password"
-    },
+    }
     
   },
   highlight: function(label) {

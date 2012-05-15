@@ -7,8 +7,8 @@ head.ready(function(){
       required: true,
     },
     roomsubject: {
-    	required: true,
-    },    
+    	required: true
+    } 
   },
   highlight: function(label) {
     $(label).closest('.control-group').addClass('error');

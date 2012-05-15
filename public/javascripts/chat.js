@@ -104,7 +104,7 @@ head.ready(function () {
 	}
 	
 	$('textarea').bind('keypress', function (e) {
-		if (e.which == 13 && $("#text-input").val().trim().length > 0) {
+		if (e.which == 13 && $.trim($("#text-input").val()).length > 0) {
 			now.distributeMessage($("#text-input").val());
 			$("#text-input").val("");
 			return false;
@@ -112,7 +112,7 @@ head.ready(function () {
 	});
 	
 	$("#send-button").click(function () {
-		if ($("#text-input").val().trim().length > 0) {
+		if ($.trim($("#text-input").val()).length > 0) {
 			now.distributeMessage($("#text-input").val());
 			$("#text-input").val("");
 		}
