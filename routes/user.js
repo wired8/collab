@@ -110,6 +110,7 @@ app.post('/forgotpassword', function(req, res) {
 app.post('/newroom', function(req, res) {
 	var nRoom = new Room();
 	nRoom.name = req.body.roomname;
+	nRoom.url = encodeURIComponent(req.body.roomname.replace(/[^a-z0-9]/gi,'').toLowerCase()); 
 	nRoom.description = req.body.roomsubject;
 	nRoom.type = req.body.create_room_access;
 	nRoom.userid = mongoose.Types.ObjectId(req.session.user_id);
