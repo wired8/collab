@@ -1,4 +1,6 @@
 head.ready(function () {
+	var _newMessages = 0;
+	var _roomName = '';
 	
 	now.loadRoomInfo = function (room) {
 		if (room == null) {
@@ -11,7 +13,9 @@ head.ready(function () {
 			});
 		}
 		
-		$(".room-name").html(room.name);
+		_roomName = room.name;
+		$(".room-name").html(_roomName);
+		$(document).attr('title', _roomName + ' | collab');
 		$(".room-name").show();
 		
 		setTimeout(function () {
@@ -36,7 +40,6 @@ head.ready(function () {
 		if (now.session && now.session.email == user.email && !user.isserver) {
 			message.classname = 'message-wrapper message-wrapper-user';
 		}
-		
 		var html = $("<div class='" + message.classname + "'>" +
 				"  <div class='message-inner'>" +
 				"    <div class='title'>" +
@@ -47,9 +50,10 @@ head.ready(function () {
 				"    <div class='message'>" + message.message + "</div>" +
 				"   </div>" +
 				"  </div>");
-		
+				
 		if (effect) {
 			$(".messages").append(html); //.hide().fadeIn(600);
+			_newMessages++;
 		} else {
 			$(".messages").append(html);
 		}
@@ -127,6 +131,22 @@ head.ready(function () {
 	now.ready(function () {
 		var room = document.location.hash.replace('#', '');
 		now.joinRoom(room);
+		
+		window.onfocus = function() {
+			window.clearInterval();
+			_newMessages = 0;
+			$(document).attr('title', _roomName + ' | collab');
+		};
+
+		window.onblur = function() {
+			window.setInterval(function() {
+				if (_newMessages > 0) {
+					$(document).attr('title', '(' + _newMessages + ') ' + _roomName + ' | collab');
+				} else {
+					$(document).attr('title', _roomName + ' | collab');
+				}
+			}, 1000);
+		};		
 	});
 	
 	hideLoading = function () {
