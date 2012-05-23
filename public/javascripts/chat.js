@@ -35,6 +35,10 @@ head.ready(function () {
 		}, 200);
 		hideLoading();
 	}
+
+    now.userIsActive = function(userid) {
+
+    }
 	
 	now.receiveMessage = function (user, message, effect) {
 		if (now.session && now.session.email == user.email && !user.isserver) {
@@ -106,6 +110,10 @@ head.ready(function () {
 		});
 		console.log('removed ' + id);
 	}
+
+    now.userIsActive = function(user) {
+
+    }
 	
 	$('textarea').bind('keypress', function (e) {
 		if (e.which == 13 && $.trim($("#text-input").val()).length > 0) {
@@ -125,12 +133,14 @@ head.ready(function () {
 	$(".change").click(function () {
 		now.changeRoom($(this).text());
 	});
-	
+
 	utils.autoResizeChatWindow();
 	
 	now.ready(function () {
 		var room = document.location.hash.replace('#', '');
 		now.joinRoom(room);
+
+        $.keypress(now.userIsActive(room));
 		
 		window.onfocus = function() {
 			window.clearInterval();

@@ -20,7 +20,6 @@ head.ready(function () {
 					return  - ($(this).width() / 2);
 				}
 			});
-			
 		},
 		
 		joinRoom : function (room) {
