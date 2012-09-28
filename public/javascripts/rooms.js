@@ -10,7 +10,7 @@ head.ready(function () {
 				now.getRooms(1, self.pagesize);
 			});
 			
-			$('#createroom').modal({
+			jQuery('#createroom').modal({
 				backdrop : true,
 				keyboard : true,
 				show : false
@@ -20,6 +20,8 @@ head.ready(function () {
 					return  - ($(this).width() / 2);
 				}
 			});
+			
+			
 		},
 		
 		joinRoom : function (room) {

@@ -36,9 +36,6 @@ head.ready(function () {
 		hideLoading();
 	}
 
-    now.userIsActive = function(userid) {
-
-    }
 	
 	now.receiveMessage = function (user, message, effect) {
 		if (now.session && now.session.email == user.email && !user.isserver) {
@@ -111,9 +108,9 @@ head.ready(function () {
 		console.log('removed ' + id);
 	}
 
-    now.userIsActive = function(user) {
-
-    }
+  now.userIsActive = function(user) {
+	  console.log('userIsActive ' + user);
+  }
 	
 	$('textarea').bind('keypress', function (e) {
 		if (e.which == 13 && $.trim($("#text-input").val()).length > 0) {
@@ -140,7 +137,7 @@ head.ready(function () {
 		var room = document.location.hash.replace('#', '');
 		now.joinRoom(room);
 
-        $.keypress(now.userIsActive(room));
+   // $.fn.keypress(now.userIsActive(room));
 		
 		window.onfocus = function() {
 			window.clearInterval();

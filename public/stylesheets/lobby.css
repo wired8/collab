@@ -46,3 +46,7 @@ body {
 	z-index: 1000;
 	clear: both;
 }
+
+.tab-content {
+	overflow: hidden;	
+}

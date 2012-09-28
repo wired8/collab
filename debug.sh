@@ -13,6 +13,6 @@ kill -9 $nodepid
 done
 echo "Done"
 
-node --debug-brk server.js | node-inspector --web-port=8082 &
+node --debug server.js | node-inspector --web-port=8082 &
 
 echo node --debug server.js | node-inspector --web-port=8082 &

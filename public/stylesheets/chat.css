@@ -32,3 +32,11 @@
 .loading img {
 	padding-right: 5px;
 }
+
+.alert {
+	margin-bottom: 0px;
+}
+
+.tab-content {
+	overflow: hidden;
+}
