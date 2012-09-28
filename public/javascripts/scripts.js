@@ -1,8 +1,8 @@
  head.js(
-      {jquery: "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"},
-      {jqueryvalidate: "/javascripts/jquery.validate.pack.js"},
+      {jquery: "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"},
       {bootstrap: "/javascripts/bootstrap.min.js"},
-      {bootbox: "/javascripts/bootbox.min.js"}
+      {bootbox: "/javascripts/bootbox.min.js"},
+      {jqueryvalidate: "/javascripts/jquery.validate.min.js"}
     );
   
     head.ready(function() {
