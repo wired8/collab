@@ -25,7 +25,8 @@ function defineModels(mongoose, fn) {
 			lastseen : Date,
 			isonline : Boolean,
 			hashed_password : String,
-			salt : String
+			salt : String,
+			enabled: {type:Boolean, default: true}
 		});
 	
 	User.virtual('lastseendate')
@@ -86,12 +87,18 @@ function defineModels(mongoose, fn) {
 			created : Date,
 			userid : ObjectId,
 			roomid : ObjectId,
-			message : String
+			message : String,
+			enabled: {type:Boolean, default: true}
 		});
 	
 	Message.virtual('posteddate')
 	.get(function () {
 		return date.toReadableDate(this.created, 'datestamp');
+	});
+	
+  Message.virtual('id')
+	.get(function () {
+		return this._id.toHexString();
 	});
 	
 	/**
@@ -105,8 +112,30 @@ function defineModels(mongoose, fn) {
 			type : String,
 			description : String,
 			userid : ObjectId,
-			created : Date
+			created : Date,
+			private: {type:Boolean, default: false},
+			enabled: {type:Boolean, default: true}
 		});
+
+  Room.virtual('id')
+	.get(function () {
+		return this._id.toHexString();
+	});
+		
+  /**
+	 * RoomUser model
+	 *
+	 * Used for determining private room members
+	 */
+	var RoomUser = new Schema({
+			userid : ObjectId,
+			roomid : ObjectId
+		});
+	
+	RoomUser.virtual('id')
+	.get(function () {
+		return this._id.toHexString();
+	});
 	
 	/**
 	 * LoginToken model
@@ -157,6 +186,7 @@ function defineModels(mongoose, fn) {
 	mongoose.model('Message', Message);
 	mongoose.model('User', User);
 	mongoose.model('LoginToken', LoginToken);
+	mongoose.model('RoomUser', RoomUser);
 	fn();
 }
 

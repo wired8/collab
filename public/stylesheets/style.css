@@ -3,7 +3,53 @@ body {
 	padding-top: 60px;
 }
 
+section {
+	position: relative;
+}
+
+section .container {
+	padding-bottom: 140px;
+}
+
 a {
   color: #00B7FF;
 }
+
+#footer {
+	bottom: 0;
+	height: 80px;
+	position: absolute;
+	width: 100%;
+}
+
+#footer .footercontent {
+  border-top: 1px solid #CCCCCC;
+}
   
+div.footercontent {
+  margin: 0 auto;
+  width: 950px;
+}
+
+#footer .innerContent {
+  border-top: 1px solid #FFFFFF;
+  color: #666666;
+  padding: 12px 4px 0;
+}
+
+#footer p.links {
+  float: right;
+}
+
+#footer p.links a {
+  color: #666666;
+  margin-left: 15px;
+}
+
+#footer p {
+  margin: 0;
+}
+
+p.links {
+  color: #CCCCCC;
+}

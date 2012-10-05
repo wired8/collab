@@ -50,7 +50,7 @@ app.configure('development', function(){
   app.set('m_database', 'collab-demo');
   app.set('m_host', '127.0.0.1');
   app.set('port', 1337);
-  app.set('host', '127.0.0.1');
+  app.set('host', 'chat.wired8.com');
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
@@ -95,6 +95,7 @@ models.defineModels(mongoose, function() {
   app.Message = Message = mongoose.model('Message');
   app.User = User = mongoose.model('User');
   app.LoginToken = LoginToken = mongoose.model('LoginToken');
+  app.RoomUser = RoomUser = mongoose.model('RoomUser');
   db = mongoose.connect(app.set('connstring'));
 });
 

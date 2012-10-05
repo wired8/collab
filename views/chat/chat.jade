@@ -1,4 +1,5 @@
 link(rel="stylesheet", type="text/css", href="/stylesheets/chat.css")
+link(rel="stylesheet", type="text/css", href="/stylesheets/sticky.css")
 link(rel="stylesheet", type="text/css", href="/stylesheets/syntaxhighlighter/shThemeDefault.css")
 .loading(id='loading')
   p
@@ -38,8 +39,7 @@ link(rel="stylesheet", type="text/css", href="/stylesheets/syntaxhighlighter/shT
                 class="btn btn-large btn-primary"
                 value="Send"
                 id="send-button")
-    .footer
-      footer  &copy; Wired8 2012
+    include ../common/footer.jade
 
 - scripts.push('chat.js'); 
-  script(type='text/javascript', src='/nowjs/now.js')
+  script(type='text/javascript', src='http://chat.wired8.com:1337/nowjs/now.js')

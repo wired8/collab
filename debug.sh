@@ -1,4 +1,7 @@
 #!/bin/bash
+
+stop node NAME=chat
+
 echo "The following node processes were found:"
 
 

@@ -115,10 +115,17 @@ app.post('/newroom', function(req, res) {
 	nRoom.type = req.body.create_room_access;
 	nRoom.userid = mongoose.Types.ObjectId(req.session.user_id);
 	nRoom.created = new Date();
+	nRoom.private = req.body.create_room_access == 'private' ? 1 : 0;
 	nRoom.save(function(err) {
     if (err) res.redirect('/error');
-    req.flash('info', 'New room created');
-    res.redirect('/lobby');
+    var nRoomUser = new RoomUser();
+    nRoomUser.userid = mongoose.Types.ObjectId(req.session.user_id);
+    nRoomUser.roomid = mongoose.Types.ObjectId(nRoom.id);
+    nRoomUser.save(function(err) {
+      if (err) res.redirect('/error');
+    	req.flash('info', 'New room created');
+    	res.redirect('/lobby');
+    });
   });
 });
 

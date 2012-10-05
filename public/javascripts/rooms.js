@@ -83,11 +83,12 @@ head.ready(function () {
 		$(".rooms").append("" +
 			"<div class='well room' id=" + room.id + "'>" +
 			"  <div class='room-header'><h3><span><a href='#' id='room_" + room.id + "'>" + roomTitle + "</a></span></h3>" +
-			"    <div class='room-description'>" + room.description + "</div>" +
+			"    <div class='room-description'><i class='icon-info-sign'></i> " + room.description + "</div>" +
 			"  </div>" +
 			"  <div class='room-details'>" + room.details + "</div>" +
-			"  <div class='room-message-count'>" + room.messagecount + " total messages</div>" +
-			"  <div class='room-user-count'>" + room.usercount + " active users</div>" +
+			"  <div class='room-message-count'><i class='icon-comment'></i> " + room.messagecount + " total messages</div>" +
+			"  <div class='room-user-count'><i class='icon-user'></i> " + room.usercount + " active users</div>" +
+			"  <div class='room-private'><i class='" + (room.private ? 'icon-lock' : '' ) + "'></i></div> " + 
 			"</div>");
 		
 		$("#room_" + room.id).click(function () {
