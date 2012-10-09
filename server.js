@@ -2,7 +2,9 @@
  * Module dependencies.
  */
  
-var nowjs = require('now')
+var http = require('http')
+  , httpProxy = require('http-proxy')
+  , nowjs = require('now')
   , mongoose = require('mongoose')
   , stylus = require('stylus')
   , util = require('util')
@@ -14,7 +16,7 @@ var nowjs = require('now')
   , chat = require('./lib/chat')
   , sessionStore
   , db;
-  
+
 
 // include authentication helpers
 auth = require('./auth').AuthHelper;
@@ -46,18 +48,20 @@ function compile(str, path, fn) {
     .render(fn);
 }
 
+
+// configure app
 app.configure('development', function(){
   app.set('m_database', 'collab-demo');
-  app.set('m_host', '127.0.0.1');
-  app.set('port', 1337);
-  app.set('host', 'chat.wired8.com');
+  app.set('m_host', 'chat.wired8.com');
+  app.set('port', 80);
+  app.set('domain', 'chat.wired8.com');
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
 app.configure('production', function(){
   app.set('m_database', 'collab');
-  app.set('m_host', '127.0.0.1');
-  app.set('port', 6969);
+  app.set('m_host', 'chat.wired8.com');
+  app.set('port', 443);
   app.set('host', 'chat.wired8.com');
   app.use(express.errorHandler());
 });
@@ -117,13 +121,17 @@ app.error(function(err, req, res){
 
 
 if (!module.parent) {
-  app.listen(app.set('port'));
+  app.listen(app.set('port'), app.set('domain'), function() {
+  console.log("... port %d in %s mode", app.address().port, app.settings.env);
+});
+  
+  //app.listen(app.set('port'),'chat.wired8.com');
   // TODO: implement cluster as soon as its stable
   /* cluster(app)
 .set('workers', 2)
 .use(cluster.debug())
 .listen(app.set('port')); */
-  console.log("Chat app server listening on port %d", app.address().port);
+  //console.log("Chat app server listening on port %d", app.address().port);
 }
 
 var everyone = chat.initialize(app, sessionStore);

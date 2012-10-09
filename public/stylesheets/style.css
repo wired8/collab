@@ -1,6 +1,5 @@
 body {
-  padding: 50px;
-	padding-top: 60px;
+
 }
 
 section {
@@ -18,8 +17,11 @@ a {
 #footer {
 	bottom: 0;
 	height: 80px;
-	position: absolute;
-	width: 100%;
+	margin-right: -20px;
+  margin-left: -20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 100px;
 }
 
 #footer .footercontent {
@@ -28,7 +30,7 @@ a {
   
 div.footercontent {
   margin: 0 auto;
-  width: 950px;
+
 }
 
 #footer .innerContent {

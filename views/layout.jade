@@ -1,7 +1,11 @@
 !!! 5
 html
   head
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
     link(rel="stylesheet", type="text/css", href="/stylesheets/bootstrap/css/bootstrap.min.css")
+    link(rel="stylesheet", type="text/css", href="/stylesheets/bootstrap/css/bootstrap.custom.css")
+    link(rel="stylesheet", type="text/css", href="/stylesheets/bootstrap/css/bootstrap-responsive.min.css")
     != renderScriptTags(scripts)
     link(rel="stylesheet", href="/stylesheets/style.css")
     link(rel="stylesheet", href="/stylesheets/auth-buttons.css")
@@ -10,19 +14,24 @@ html
   body
     .navbar.navbar-fixed-top.navbar-inverse
       .navbar-inner
-        .container
+        .container-fluid
+          a(data-target=".nav-collapse", data-toggle="collapse", class="btn btn-navbar")
+            span(class="icon-bar")
+            span(class="icon-bar")
+            span(class="icon-bar")
           a(href="/").brand collab
-          ul.nav
-            li.active
-              - if (isLoggedIn) 
-                a(href="/lobby") Lobby  
-              - else
-                a(href="/") Home
-            li
-              a(href="/about") About
-            li
-              a(href="/contact") Contact
-          - if (isLoggedIn)
-            != partial('user/account')
+          .nav-collapse
+            ul.nav
+              li.active
+                - if (isLoggedIn) 
+                  a(href="/lobby") Lobby  
+                - else
+                  a(href="/") Home
+              li
+                a(href="/about") About
+              li
+                a(href="/contact") Contact
+            - if (isLoggedIn)
+              != partial('user/account')
 
 !{body}
