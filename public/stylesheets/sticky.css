@@ -18,7 +18,7 @@ html, body, .container, .content {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -195px; /* same as the footer */
+    margin: 0 20px -195px 20px; /* same as the footer */
 }
 
 .push {
@@ -27,4 +27,6 @@ html, body, .container, .content {
 .footer-wrapper {
     position: relative;
     height: 195px;
+    margin-left: 20px;
+    margin-right: 20px;
 }

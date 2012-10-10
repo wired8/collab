@@ -88,12 +88,36 @@ head.ready(function () {
 			"  <div class='room-details'>" + room.details + "</div>" +
 			"  <div class='room-message-count'><i class='icon-comment'></i> " + room.messagecount + " total messages</div>" +
 			"  <div class='room-user-count'><i class='icon-user'></i> " + room.usercount + " active users</div>" +
+			"  <div class='drop-down'>" +
+			"    <a id='drop-" + room.id + "' href='#' class='dropdown-toggle room-isadmin' data-toggle='dropdown' role='button'><i class='" + (room.isadmin ? 'icon-wrench' : '' ) + "'></i></a> " + 
+			"    <ul class='dropdown-menu' role='menu' aria-labelledby='drop" + room.id + "'> " +
+			"      <li><a href='#' id='deleteroom_" + room.id + "' tabindex='-1'><i class='icon-trash'></i> Delete room</a></li>" +
+			"      <li><a href='#' tabindex='-1'><i class='icon-eye-open'></i> Manage room</a></li>" +
+			"      <li><a href='#' id='renameroom_" + room.id + "' tabindex='-1'><i class='icon-edit'></i> Rename room</a></li>" +
+			"      <li><a href='#' tabindex='-1'><i class='icon-hdd'></i> Archive room</a></li>" +
+			"    </ul> " +
+			"  </div> " +
 			"  <div class='room-private'><i class='" + (room.private ? 'icon-lock' : '' ) + "'></i></div> " + 
 			"</div>");
 		
 		$("#room_" + room.id).click(function () {
 			Room.joinRoom(room.url);
 			return false;
+		});
+		
+		$('#deleteroom_' + room.id).click(function () {
+			var roomTitle = Room.htmlEscape(room.title);
+			$('#deleteroom').find('#roomid').val(room.id);
+			$('#deleteroom').find('#roomname').text(roomTitle);
+			$('#deleteroom').modal('show');
+		});
+		
+		$('#renameroom_' + room.id).click(function () {
+			var roomTitle = Room.htmlEscape(room.title);
+			$('#renameroom').find('#roomid').val(room.id);
+			$('#renameroom').find('#roomname').text(roomTitle);
+			$('#renameroom').find('#newroomname').val(roomTitle);
+			$('#renameroom').modal('show');
 		});
 		
 	};

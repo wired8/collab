@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 var email = require("../lib/email");
 var common = require("../lib/common");
+var nowjs = require('now');
 
 // login route
 app.post('/login', function(req, res) {
@@ -128,6 +129,45 @@ app.post('/newroom', function(req, res) {
     });
   });
 });
+
+// delete room route
+app.post('/deleteroom', function(req, res) {
+  console.log('deleting room: ' + req.body.roomid);
+	Room.findOne({ _id: mongoose.Types.ObjectId(req.body.roomid) }, function(err, room) {
+    if (room) {
+	    room.enabled = false;
+      room.save(function(err) {
+	      if (err) res.redirect('/error');
+	      nowjs.removeGroup(room.name);
+      	req.flash('info', 'Room deleted');
+    	  res.redirect('/lobby');
+      });
+    } else {
+	  	res.redirect('/lobby');
+    }
+  });
+});
+
+// rename room route
+app.post('/renameroom', function(req, res) {
+  console.log('renaming room: ' + req.body.roomid);
+	Room.findOne({ _id: mongoose.Types.ObjectId(req.body.roomid) }, function(err, room) {
+    if (room) {
+      nowjs.getGroup(room.name).groupName = req.body.roomname;
+      room.name = req.body.roomname;
+      room.save(function(err) {
+	      if (err) res.redirect('/error');
+	      
+	       console.log('renaming room: ' + req.body.roomname);
+      	req.flash('info', 'Room renamed');
+    	  res.redirect('/lobby');
+      });
+    } else {
+	  	res.redirect('/lobby');
+    }
+  });
+});
+
 
 //logout user
 app.get('/logout', auth.loadUser, function(req, res) {

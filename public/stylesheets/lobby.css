@@ -11,7 +11,7 @@ body {
 	width: 215px;
 	float: left;
 	position: relative;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	padding: 5px;
 	margin: 0 5px 10px;
 	height: 185px;
@@ -35,6 +35,15 @@ body {
 	padding: 4px 4px 4px 5px;
 	position: absolute;
 	right: 2px;
+}
+
+.room-isadmin {
+	bottom: 0;
+	display: inline-block;
+	float: left !important;
+	padding: 0px 4px 4px 0px;
+	position: absolute;
+
 }
 
 .room-header, .user-header {

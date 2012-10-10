@@ -40,3 +40,10 @@
 .tab-content {
 	overflow: hidden;
 }
+
+
+@media (max-width: 767px) {
+	#users {
+		display: none;		
+	}
+}
