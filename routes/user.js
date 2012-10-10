@@ -154,11 +154,11 @@ app.post('/renameroom', function(req, res) {
 	Room.findOne({ _id: mongoose.Types.ObjectId(req.body.roomid) }, function(err, room) {
     if (room) {
       var oldname = room.name;
+      nowjs.removeGroup(oldname);
       room.name = req.body.roomname;
       room.url = req.body.roomname;
       room.save(function(err) {
 	      if (err) res.redirect('/error');
-	      nowjs.removeGroup(oldname);
 	      console.log('renaming room: ' + oldname);
 	      console.log('renaming room: ' + req.body.roomname);
       	req.flash('info', 'Room renamed');
