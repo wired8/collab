@@ -153,12 +153,14 @@ app.post('/renameroom', function(req, res) {
   console.log('renaming room: ' + req.body.roomid);
 	Room.findOne({ _id: mongoose.Types.ObjectId(req.body.roomid) }, function(err, room) {
     if (room) {
-      nowjs.getGroup(room.name).groupName = req.body.roomname;
+      var oldname = room.name;
       room.name = req.body.roomname;
+      room.url = req.body.roomname;
       room.save(function(err) {
 	      if (err) res.redirect('/error');
-	      
-	       console.log('renaming room: ' + req.body.roomname);
+	      nowjs.removeGroup(oldname);
+	      console.log('renaming room: ' + oldname);
+	      console.log('renaming room: ' + req.body.roomname);
       	req.flash('info', 'Room renamed');
     	  res.redirect('/lobby');
       });
