@@ -130,6 +130,30 @@ app.post('/newroom', function(req, res) {
   });
 });
 
+// update room route
+app.post('/updateroom', function(req, res) {
+  console.log('updating room: ' + req.body.roomid);
+	Room.findOne({ _id: mongoose.Types.ObjectId(req.body.roomid) }, function(err, room) {
+  	if (room) {
+  	  var oldname = room.name;
+	    room.name = req.body.roomname;
+			room.url = encodeURIComponent(req.body.roomname.replace(/[^a-z0-9]/gi,'').toLowerCase()); 
+			room.description = req.body.roomsubject;
+			room.type = req.body.create_room_access;
+			room.private = req.body.create_room_access == 'private' ? 1 : 0;
+      room.save(function(err) {
+	      if (err) res.redirect('/error');
+	      nowjs.removeGroup(oldname);
+      	req.flash('info', 'Room updated');
+    	  res.redirect('/lobby');
+      });
+    } else {
+	  	res.redirect('/lobby');
+    }
+  });
+});
+
+
 // delete room route
 app.post('/deleteroom', function(req, res) {
   console.log('deleting room: ' + req.body.roomid);

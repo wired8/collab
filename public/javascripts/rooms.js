@@ -92,9 +92,9 @@ head.ready(function () {
 			"    <a id='drop-" + room.id + "' href='#' class='dropdown-toggle room-isadmin' data-toggle='dropdown' role='button'><i class='" + (room.isadmin ? 'icon-wrench' : '' ) + "'></i></a> " + 
 			"    <ul class='dropdown-menu' role='menu' aria-labelledby='drop" + room.id + "'> " +
 			"      <li><a href='#' id='deleteroom_" + room.id + "' tabindex='-1'><i class='icon-trash'></i> Delete room</a></li>" +
-			"      <li><a href='#' tabindex='-1'><i class='icon-eye-open'></i> Manage room</a></li>" +
+			"      <li><a href='#' id='manageroom_" + room.id + "' tabindex='-1'><i class='icon-eye-open'></i> Manage room</a></li>" +
 			"      <li><a href='#' id='renameroom_" + room.id + "' tabindex='-1'><i class='icon-edit'></i> Rename room</a></li>" +
-			"      <li><a href='#' tabindex='-1'><i class='icon-hdd'></i> Archive room</a></li>" +
+			"      <li><a href='#' id='archiveroom_" + room.id + "' tabindex='-1'><i class='icon-hdd'></i> Archive room</a></li>" +
 			"    </ul> " +
 			"  </div> " +
 			"  <div class='room-private'><i class='" + (room.private ? 'icon-lock' : '' ) + "'></i></div> " + 
@@ -118,6 +118,16 @@ head.ready(function () {
 			$('#renameroom').find('#roomname').text(roomTitle);
 			$('#renameroom').find('#newroomname').val(roomTitle);
 			$('#renameroom').modal('show');
+		});
+		
+		$('#manageroom_' + room.id).click(function () {
+			var roomTitle = Room.htmlEscape(room.title);
+			$('#manageroom').find('#roomid').val(room.id);
+			$('#manageroom').find('#roomname').val(roomTitle);
+			$('#manageroom').find('#roomsubject').val(room.description);
+			$('#manageroom').find('input:radio[name=create_room_access]').filter('[value=private]').attr('checked', room.private);
+			$('#manageroom').find('input:radio[name=create_room_access]').filter('[value=public]').attr('checked', !room.private);
+			$('#manageroom').modal('show');
 		});
 		
 	};
