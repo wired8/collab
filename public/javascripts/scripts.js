@@ -1,5 +1,5 @@
  head.js(
-      {jquery: "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"},
+      {jquery: "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"},
       {bootstrap: "/javascripts/bootstrap.min.js"},
       {bootbox: "/javascripts/bootbox.min.js"},
       {jqueryvalidate: "/javascripts/jquery.validate.min.js"},

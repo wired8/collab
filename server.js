@@ -3,6 +3,8 @@
  */
  
 var http = require('http')
+  , crypto = require('crypto')
+  , fs = require("fs")
   , httpProxy = require('http-proxy')
   , nowjs = require('now')
   , mongoose = require('mongoose')
@@ -17,11 +19,15 @@ var http = require('http')
   , sessionStore
   , db;
 
+var privateKey = fs.readFileSync('./ssl/private.key').toString();
+var certificate = fs.readFileSync('./ssl/certificate.key').toString();
+
+//var credentials = crypto.createCredentials({key: privateKey, cert: certificate});
 
 // include authentication helpers
 auth = require('./auth').AuthHelper;
  
-app = module.exports = express.createServer();
+app = module.exports = express.createServer({key: privateKey, cert: certificate});
 
 // setup helpers
 app.helpers(require('./helpers.js').helpers);
@@ -53,7 +59,7 @@ function compile(str, path, fn) {
 app.configure('development', function(){
   app.set('m_database', 'collab-demo');
   app.set('m_host', 'chat.wired8.com');
-  app.set('port', 80);
+  app.set('port', 443);
   app.set('domain', 'chat.wired8.com');
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
